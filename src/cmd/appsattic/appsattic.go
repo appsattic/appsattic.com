@@ -53,11 +53,13 @@ func main() {
 
 	m.Get("/", func(w http.ResponseWriter, r *http.Request) {
 		data := struct {
-			Apex    string
-			BaseUrl string
+			Apex     string
+			BaseUrl  string
+			Projects []Project
 		}{
 			apex,
 			baseUrl,
+			projects,
 		}
 		render(w, tmpl, "index.html", data)
 	})
