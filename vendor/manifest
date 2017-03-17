@@ -24,6 +24,12 @@
 			"repository": "https://github.com/gomiddleware/mux",
 			"revision": "cb5709b593789095df3d228080ed2bec60211349",
 			"branch": "master"
+		},
+		{
+			"importpath": "github.com/gomiddleware/slash",
+			"repository": "https://github.com/gomiddleware/slash",
+			"revision": "1233b617a4423d1edd30db3fc1ca6619a92092b6",
+			"branch": "master"
 		}
 	]
 }
