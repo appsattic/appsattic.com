@@ -9,8 +9,11 @@ type Project struct {
 	ImageUrl string
 }
 
-var projects []Project = []Project{
-	Project{
+var projects map[string]Project = make(map[string]Project)
+
+func init() {
+
+	projects["imagelicious.org"] = Project{
 		Name:  "imagelicious",
 		Title: "Imagelicious",
 		Apex:  "imagelicious.org",
@@ -21,8 +24,9 @@ var projects []Project = []Project{
 			"Bundled using Browserify",
 			"Creates thumbnails inside the browser",
 		},
-	},
-	Project{
+	}
+
+	projects["publish.li"] = Project{
 		Name:  "publish",
 		Title: "publish.li",
 		Apex:  "publish.li",
@@ -32,8 +36,9 @@ var projects []Project = []Project{
 			"Uses BoltDB embedded key/value store",
 			"Frontend written with Vue.js",
 		},
-	},
-	Project{
+	}
+
+	projects["bcrypt.org"] = Project{
 		Name:  "bcrypt",
 		Title: "bcrypt.org",
 		Apex:  "bcrypt.org",
@@ -44,5 +49,6 @@ var projects []Project = []Project{
 			"Use in your unit tests",
 			"Independent validation of your passwords",
 		},
-	},
+	}
+
 }

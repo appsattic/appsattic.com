@@ -10,6 +10,7 @@ import (
 	"github.com/gomiddleware/logger"
 	"github.com/gomiddleware/logit"
 	"github.com/gomiddleware/mux"
+	"github.com/gomiddleware/slash"
 )
 
 func check(err error) {
@@ -55,7 +56,7 @@ func main() {
 		data := struct {
 			Apex     string
 			BaseUrl  string
-			Projects []Project
+			Projects map[string]Project
 		}{
 			apex,
 			baseUrl,
@@ -68,13 +69,36 @@ func main() {
 		data := struct {
 			Apex     string
 			BaseUrl  string
-			Projects []Project
+			Projects map[string]Project
 		}{
 			apex,
 			baseUrl,
 			projects,
 		}
 		render(w, tmpl, "contact.html", data)
+	})
+
+	m.Get("/:projectName", slash.Add)
+	m.Get("/:projectName/", func(w http.ResponseWriter, r *http.Request) {
+		projectName := mux.Vals(r)["projectName"]
+		project, ok := projects[projectName]
+		if !ok {
+			notFound(w, r)
+			return
+		}
+
+		data := struct {
+			Apex     string
+			BaseUrl  string
+			Projects map[string]Project
+			Project  Project
+		}{
+			apex,
+			baseUrl,
+			projects,
+			project,
+		}
+		render(w, tmpl, "project.html", data)
 	})
 
 	// finally, check all routing was added correctly
