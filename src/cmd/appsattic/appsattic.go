@@ -64,6 +64,19 @@ func main() {
 		render(w, tmpl, "index.html", data)
 	})
 
+	m.Get("/contact", func(w http.ResponseWriter, r *http.Request) {
+		data := struct {
+			Apex     string
+			BaseUrl  string
+			Projects []Project
+		}{
+			apex,
+			baseUrl,
+			projects,
+		}
+		render(w, tmpl, "contact.html", data)
+	})
+
 	// finally, check all routing was added correctly
 	check(m.Err)
 

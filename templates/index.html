@@ -1,83 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="/favicon.ico">
-    <title>{{ .Apex }}</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/s/css/styles.css">
-  </head>
+{{ template "header.html" . }}
 
-  <body>
-
-    <!-- .container -->
     <div class="container">
-      <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills float-right">
-            <li class="nav-item">
-              <a class="nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/contact">Contact</a>
-            </li>
-          </ul>
-        </nav>
-        <h3 class="text-muted">{{ .Apex }}</h3>
-      </div>
-
-      <div class="jumbotron">
-        <h1 class="display-3">cssminifier.com</h1>
-        <p class="lead">
-
-          cssminifier.com gets over 100,000 visits and performs over 400,000 minifications per month. That's almost 5
-          million minifications per year.
-
-        </p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
-      </div>
-
-      <div class="row marketing">
-        <div class="col-lg-6">
-          {{ range $project := .Projects }}
-            <h4>{{ $project.Title }}</h4>
-            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-          {{ end }}
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+      <h2 style="margin-bottom: 1em; text-align: center">Open Source Projects</h2>
+      <div class="row">
+      {{ range $project := .Projects }}
+        <div class="col-md-4 col-sm-6">
+          <div class="well">
+            <a href="/{{ $project.Apex }}/"><img class="img-responsive" src="/s/img/{{ $project.Name }}-320x200.png" alt="{{ $project.Apex }} - {{ $project.Title }}"></a>
+            <h3>{{ $project.Apex }}</h3>
+            <p>{{ $project.Intro }}</p>
+            <div class="c">
+              <a class="btn btn-default" target="_blank" href="https://{{ $project.Apex }}/">View Site</a>
+              <a class="btn btn-default" target="_blank" href="https://github.com/appsattic/{{ $project.Apex }}">Source Code</a>
+            </div>
+          </div>
         </div>
-
-        <div class="col-lg-6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+      {{ end }}
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <h2 style="margin-bottom: 1em; text-align: center">Latest Posts</h2>
+          <p class="c"><a href="/blog/publish-articles-easily">Publish Articles Easily with publish.li</a><br><a href="/blog/tutorial-passport-auto">Tutorial: Passport Auto</a><br><a href="/blog/firebase-is-not-open-source-so-why-use-it">Firebase is not open source, so why use it?</a><br><a href="/blog/introducing-imagelicious">Introducing Imagelicious on Firebase</a><br>
+          </p>
+        </div>
+        <div class="col-md-6">
+          <h2 style="margin-bottom: 1em; text-align: center">Latest Tweets</h2>
         </div>
       </div>
-
-      <footer class="footer">
-        <p>&copy; <a href="https://appsattic.com">AppsAttic</a> 2017</p>
-      </footer>
-
     </div>
-    <!-- /.container -->
 
-    <script src="/s/js/ie10.js"></script>
-  </body>
-</html>
+{{ template "footer.html" . }}
