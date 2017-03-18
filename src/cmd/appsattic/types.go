@@ -1,6 +1,6 @@
 package main
 
-type Project struct {
+type App struct {
 	Name     string
 	Title    string
 	Apex     string
@@ -9,11 +9,11 @@ type Project struct {
 	ImageUrl string
 }
 
-var projects map[string]Project = make(map[string]Project)
+var apps map[string]App = make(map[string]App)
 
 func init() {
 
-	projects["imagelicious.org"] = Project{
+	apps["imagelicious.org"] = App{
 		Name:  "imagelicious",
 		Title: "Imagelicious",
 		Apex:  "imagelicious.org",
@@ -26,7 +26,7 @@ func init() {
 		},
 	}
 
-	projects["publish.li"] = Project{
+	apps["publish.li"] = App{
 		Name:  "publish",
 		Title: "publish.li",
 		Apex:  "publish.li",
@@ -38,7 +38,7 @@ func init() {
 		},
 	}
 
-	projects["bcrypt.org"] = Project{
+	apps["bcrypt.org"] = App{
 		Name:  "bcrypt",
 		Title: "bcrypt.org",
 		Apex:  "bcrypt.org",

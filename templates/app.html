@@ -1,0 +1,27 @@
+{{ template "header.html" . }}
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-8">
+          <h2 style="margin-bottom: 1em;">{{ .App.Title }}</h2>
+          <h4>{{ .App.Intro }}</h4>
+          <p></p>
+          <h4>Features</h4>
+          <ul>
+            {{ range $feature := .App.Features }}
+              <li>{{ $feature }}</li>
+            {{ end }}
+          </ul>
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <h4>Links</h4>
+          <ul>
+            <li class="active">Docs</li>
+            <li><a target="_blank" href="https://{{ .App.Apex }}/">Open App</a></li>
+            <li><a target="_blank" href="https://github.com/appsattic/{{ .App.Apex }}/">GitHub Project</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+{{ template "footer.html" . }}

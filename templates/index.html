@@ -1,22 +1,23 @@
 {{ template "header.html" . }}
 
     <div class="container">
-      <h2 style="margin-bottom: 1em; text-align: center">Open Source Projects</h2>
+      <h2 style="margin-bottom: 1em; text-align: center">Open Source Web Apps</h2>
       <div class="row">
-      {{ range $project := .Projects }}
+      {{ range $app := .Apps }}
         <div class="col-md-4 col-sm-6">
           <div class="well">
-            <a href="/{{ $project.Apex }}/"><img class="img-responsive" src="/s/img/{{ $project.Name }}-320x200.png" alt="{{ $project.Apex }} - {{ $project.Title }}"></a>
-            <h3>{{ $project.Apex }}</h3>
-            <p>{{ $project.Intro }}</p>
+            <a href="/app/{{ $app.Apex }}/"><img class="img-responsive" src="/s/img/{{ $app.Name }}-320x200.png" alt="{{ $app.Apex }} - {{ $app.Title }}"></a>
+            <h3>{{ $app.Apex }}</h3>
+            <p>{{ $app.Intro }}</p>
             <div class="c">
-              <a class="btn btn-default" target="_blank" href="https://{{ $project.Apex }}/">View Site</a>
-              <a class="btn btn-default" target="_blank" href="https://github.com/appsattic/{{ $project.Apex }}">Source Code</a>
+              <a class="btn btn-default" target="_blank" href="https://{{ $app.Apex }}/">Open App</a>
+              <a class="btn btn-default" href="/app/{{ $app.Apex }}">Docs</a>
             </div>
           </div>
         </div>
       {{ end }}
       </div>
+      <!--
       <div class="row">
         <div class="col-md-6">
           <h2 style="margin-bottom: 1em; text-align: center">Latest Posts</h2>
@@ -27,6 +28,7 @@
           <h2 style="margin-bottom: 1em; text-align: center">Latest Tweets</h2>
         </div>
       </div>
+      -->
     </div>
 
 {{ template "footer.html" . }}

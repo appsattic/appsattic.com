@@ -54,51 +54,61 @@ func main() {
 
 	m.Get("/", func(w http.ResponseWriter, r *http.Request) {
 		data := struct {
-			Apex     string
-			BaseUrl  string
-			Projects map[string]Project
+			Apex    string
+			BaseUrl string
+			Apps    map[string]App
 		}{
 			apex,
 			baseUrl,
-			projects,
+			apps,
 		}
 		render(w, tmpl, "index.html", data)
 	})
 
 	m.Get("/contact", func(w http.ResponseWriter, r *http.Request) {
 		data := struct {
-			Apex     string
-			BaseUrl  string
-			Projects map[string]Project
+			Apex    string
+			BaseUrl string
+			Apps    map[string]App
 		}{
 			apex,
 			baseUrl,
-			projects,
+			apps,
 		}
 		render(w, tmpl, "contact.html", data)
 	})
 
-	m.Get("/:projectName", slash.Add)
-	m.Get("/:projectName/", func(w http.ResponseWriter, r *http.Request) {
-		projectName := mux.Vals(r)["projectName"]
-		project, ok := projects[projectName]
+	// redirect the old project pages, to the new /app/ pages
+	m.Get("/project/imagelicious/", redirect("/app/imagelicious.org/"))
+	m.Get("/project/bcrypt/", redirect("/app/bcrypt.org/"))
+	m.Get("/project/publish/", redirect("/app/publish.li/"))
+	m.Get("/project", redirect("/app/"))
+	m.Get("/project/", redirect("/app/"))
+
+	m.Get("/app", redirect("/"))
+	m.Get("/app/", redirect("/"))
+
+	m.Get("/app/:appName", slash.Add)
+	m.Get("/app/:appName/", func(w http.ResponseWriter, r *http.Request) {
+		appName := mux.Vals(r)["appName"]
+		app, ok := apps[appName]
 		if !ok {
 			notFound(w, r)
 			return
 		}
 
 		data := struct {
-			Apex     string
-			BaseUrl  string
-			Projects map[string]Project
-			Project  Project
+			Apex    string
+			BaseUrl string
+			Apps    map[string]App
+			App     App
 		}{
 			apex,
 			baseUrl,
-			projects,
-			project,
+			apps,
+			app,
 		}
-		render(w, tmpl, "project.html", data)
+		render(w, tmpl, "app.html", data)
 	})
 
 	// finally, check all routing was added correctly
