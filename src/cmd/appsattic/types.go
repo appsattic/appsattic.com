@@ -51,4 +51,17 @@ func init() {
 		},
 	}
 
+	apps["pow.gd"] = App{
+		Name:  "pow",
+		Title: "Pow",
+		Apex:  "pow.gd",
+		Intro: "URL Shortener, with hit counts and nice graphs.",
+		Features: []string{
+			"Written in Go",
+			"Open to Use",
+			"Uses Redis for Daily, Hourly and Total Counts",
+			"Graph.js for stats graphs",
+		},
+	}
+
 }
