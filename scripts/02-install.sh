@@ -27,9 +27,9 @@ echo
 # copy the supervisor script into place
 echo "Copying supervisor config ..."
 m4 \
-    -D __APPSATTIC_PORT__=APPSATTIC_PORT \
-    -D __APPSATTIC_APEX__=APPSATTIC_APEX \
-    -D __APPSATTIC_BASE_URL__=APPSATTIC_BASE_URL \
+    -D __APPSATTIC_PORT__=$APPSATTIC_PORT \
+    -D __APPSATTIC_APEX__=$APPSATTIC_APEX \
+    -D __APPSATTIC_BASE_URL__=$APPSATTIC_BASE_URL \
     etc/supervisor/conf.d/appsattic.conf.m4 | sudo tee /etc/supervisor/conf.d/.conf
 echo
 
@@ -41,9 +41,9 @@ echo
 # copy the caddy conf
 echo "Copying Caddy config config ..."
 m4 \
-    -D __APPSATTIC_PORT__=APPSATTIC_PORT \
-    -D __APPSATTIC_APEX__=APPSATTIC_APEX \
-    -D __APPSATTIC_BASE_URL__=APPSATTIC_BASE_URL \
+    -D __APPSATTIC_PORT__=$APPSATTIC_PORT \
+    -D __APPSATTIC_APEX__=$APPSATTIC_APEX \
+    -D __APPSATTIC_BASE_URL__=$APPSATTIC_BASE_URL \
     etc/caddy/vhosts/appsattic.conf.m4 | sudo tee /etc/caddy/vhosts/appsattic.conf
 echo
 
