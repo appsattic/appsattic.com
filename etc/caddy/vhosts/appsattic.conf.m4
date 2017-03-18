@@ -1,4 +1,4 @@
-__appsattic_APEX__ {
+__APPSATTIC_APEX__ {
   proxy / localhost:__APPSATTIC_PORT__ {
     transparent
   }
@@ -7,6 +7,6 @@ __appsattic_APEX__ {
   errors stderr
 }
 
-www.__appsattic_appsattic.com__ {
-  redir http://__appsattic_APEX__{uri} 302
+www.__APPSATTIC_APEX__ {
+  redir http://__APPSATTIC_APEX__{uri} 302
 }
