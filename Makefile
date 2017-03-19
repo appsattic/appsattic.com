@@ -7,6 +7,9 @@ vendor:
 fmt:
 	find src/ -name '*.go' -exec go fmt {} ';'
 
+compile:
+	curl -X POST -s --data-urlencode 'input@static/s/css/clean.css' https://cssminifier.com/raw > static/s/css/clean.min.css
+
 build: fmt
 	gb build all
 

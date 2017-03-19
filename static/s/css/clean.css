@@ -242,6 +242,7 @@ hr.small {
 }
 .post-preview > .post-meta > a {
   text-decoration: none;
+  color: #0085A1;
   color: #333333;
 }
 .post-preview > .post-meta > a:hover,
