@@ -30,7 +30,7 @@ m4 \
     -D __APPSATTIC_PORT__=$APPSATTIC_PORT \
     -D __APPSATTIC_APEX__=$APPSATTIC_APEX \
     -D __APPSATTIC_BASE_URL__=$APPSATTIC_BASE_URL \
-    etc/supervisor/conf.d/appsattic.conf.m4 | sudo tee /etc/supervisor/conf.d/.conf
+    etc/supervisor/conf.d/appsattic.conf.m4 | sudo tee /etc/supervisor/conf.d/appsattic.conf
 echo
 
 # restart supervisor
