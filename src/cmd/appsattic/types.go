@@ -64,4 +64,17 @@ func init() {
 		},
 	}
 
+	apps["paste.gd"] = App{
+		Name:  "paste",
+		Title: "Paste",
+		Apex:  "paste.gd",
+		Intro: "Simple, easy to use and easy to deploy Paste Bin web app.",
+		Features: []string{
+			"Written in Go",
+			"Open Source",
+			"Uses BoltDB for storage",
+			"Light on resources",
+		},
+	}
+
 }
