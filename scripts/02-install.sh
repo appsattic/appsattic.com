@@ -16,9 +16,9 @@ fi
 echo
 
 # General
-APPSATTIC_PORT=`ask.sh pow APPSATTIC_PORT 'Which local port should the server listen on (e.g. 9670):'`
-APPSATTIC_APEX=`ask.sh pow APPSATTIC_APEX 'What is the apex (e.g. localhost:9670 or appsattic.com) :'`
-APPSATTIC_BASE_URL=`ask.sh pow APPSATTIC_BASE_URL 'What is the base URL (e.g. http://localhost:1234 or https://appsattic.com) :'`
+APPSATTIC_PORT=`ask.sh appsattic APPSATTIC_PORT 'Which local port should the server listen on (e.g. 9670):'`
+APPSATTIC_APEX=`ask.sh appsattic APPSATTIC_APEX 'What is the apex (e.g. localhost:9670 or appsattic.com) :'`
+APPSATTIC_BASE_URL=`ask.sh appsattic APPSATTIC_BASE_URL 'What is the base URL (e.g. http://localhost:1234 or https://appsattic.com) :'`
 
 echo "Building code ..."
 gb build
